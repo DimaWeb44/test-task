@@ -102,7 +102,7 @@ const initialState: InitialStateType = {
             category: 'Economy'
         }],
     category: 'All'
-} as any
+}
 
 export const newsReducer = (state: InitialStateType = initialState, action: AppActionsType): InitialStateType => {
     switch (action.type) {
@@ -116,16 +116,19 @@ export const newsReducer = (state: InitialStateType = initialState, action: AppA
 }
 
 // actions
-export const setNewCategoryAC = (category: string) =>
-    ({type: 'news/SET-NEW-CATEGORY', category} as const)
+export const setNewCategoryAC = (category: string) => ({type: 'news/SET-NEW-CATEGORY', category} as const)
 
 //types
 export type setNewPhoneACType = ReturnType<typeof setNewCategoryAC>
-
-export type NewsActionsType =
-    | setNewPhoneACType
-
+export type NewsActionsType = setNewPhoneACType
+export type ArticleType = {
+    id: string
+    img: string
+    title: string
+    text: string
+    category: string
+}
 type InitialStateType = {
-    news: any
+    news: Array<ArticleType>
     category: string
 }

@@ -15,10 +15,10 @@ const initialState: InitialStateType = {
         date: '8 сентября 2022 в 17:38',
     }],
     post: {
-        id: '1',
-        text: 'First post'
+        id: '',
+        text: ''
     }
-} as any
+}
 
 export const profileReducer = (state: InitialStateType = initialState, action: AppActionsType): InitialStateType => {
     switch (action.type) {
@@ -83,21 +83,21 @@ export type ProfileActionsType =
     | removePostACType
     | changePostACType
     | setTextIdPostACType
-type InitialStateType = {
-    profile: any
-    posts: any
-    post: any
+export type PostType = {
+    id: string
+    text: string
+    date: string
 }
-/*type InitialStateType = {
+type InitialStateType = {
     profile: {
         name: string
         avatar: string | unknown
         email: string
         phone: string
     }
-    posts: Array<{
+    posts: Array<PostType>
+    post: {
         id: string
         text: string
-        date: string
-    }>
-}*/
+    }
+}

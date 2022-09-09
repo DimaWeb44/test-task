@@ -11,18 +11,17 @@ export const PATH = {
     PROFILE: '/profile',
     NEWS: '/news',
 }
-const paperStyle = {height: '100%'}
 
 function App() {
     return (<>
             <Header/>
             <div className="App">
-                <Grid container spacing={2} sx={{height: 'auto', padding: '20px 70px 20px 70px'}}>
-                    <Grid item xs={2}>
+                <Grid   container spacing={2} sx={{height: 'auto', padding: '20px 70px 20px 70px'}}>
+                    <Grid item xs="auto">
                         <Navbar/>
                     </Grid>
-                    <Grid item xs={10}>
-                        <Paper elevation={4} style={paperStyle}>
+                    <Grid item xs>
+                        <Paper elevation={4} style={{height: '100%'}}>
                             <Grid sx={{height: 'auto', padding: '30px'}}>
                                 <Routes>
                                     <Route path={'/'} element={<Navigate to={PATH.PROFILE}/>}/>
@@ -36,7 +35,7 @@ function App() {
                 </Grid>
             </div>
         </>
-    );
+    )
 }
 
 export default App;

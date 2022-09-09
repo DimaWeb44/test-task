@@ -7,11 +7,7 @@ import Typography from '@mui/material/Typography';
 export default function Article({article}: any) {
     return (
         <Card sx={{width: 345, marginTop: '20px'}}>
-            <CardMedia
-                component="img"
-                height="140"
-                image={article.img}
-            />
+            <CardMedia component="img" height="140" image={article.img}/>
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                     {article.title}
@@ -24,5 +20,5 @@ export default function Article({article}: any) {
                 </Typography>
             </CardContent>
         </Card>
-    );
+    )
 }

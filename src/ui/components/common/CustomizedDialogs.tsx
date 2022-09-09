@@ -10,7 +10,7 @@ import {setAppOpenDiologsAC} from "../../../bll/appReducer";
 import {useDispatch} from "react-redux";
 
 
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+const BootstrapDialog = styled(Dialog)(({theme}) => ({
     '& .MuiDialogContent-root': {
         padding: theme.spacing(2),
     },
@@ -25,29 +25,26 @@ export interface DialogTitleProps {
 }
 
 const BootstrapDialogTitle = (props: DialogTitleProps) => {
-    const { children, onClose, ...other } = props;
+    const {children, onClose, ...other} = props;
 
-    return (
-        <DialogTitle sx={{ m: 0, p: 2,  width: '395px'}} {...other}>
+    return (<DialogTitle sx={{m: 0, p: 2, width: '395px'}} {...other}>
             {children}
             {onClose ? (
-                <IconButton
-                    aria-label="close"
-                    onClick={onClose}
-                    sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        color: (theme) => theme.palette.grey[500],
-                    }}
+                <IconButton aria-label="close"
+                            onClick={onClose}
+                            sx={{
+                                position: 'absolute',
+                                right: 8,
+                                top: 8,
+                                color: (theme) => theme.palette.grey[500],
+                            }}
                 >
-                    <CloseIcon />
+                    <CloseIcon/>
                 </IconButton>
             ) : null}
         </DialogTitle>
     );
 };
-
 
 export interface CustomizedDialogsProps {
     children?: React.ReactNode;
@@ -61,14 +58,12 @@ export function CustomizedDialogs(props: CustomizedDialogsProps) {
 
     const handleClose = () => {
         dispatch(setAppOpenDiologsAC('close'))
-    };
-
+    }
     return (
         <div>
-            <BootstrapDialog
-                onClose={handleClose}
-                aria-labelledby="customized-dialog-title"
-                open={props.diologsName === isOpenDiologs}
+            <BootstrapDialog onClose={handleClose}
+                             aria-labelledby="customized-dialog-title"
+                             open={props.diologsName === isOpenDiologs}
             >
                 <BootstrapDialogTitle onClose={handleClose}>
                     {props.title}
@@ -78,5 +73,5 @@ export function CustomizedDialogs(props: CustomizedDialogsProps) {
                 </DialogContent>
             </BootstrapDialog>
         </div>
-    );
+    )
 }

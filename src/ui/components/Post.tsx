@@ -6,18 +6,26 @@ import EditIcon from "@mui/icons-material/Edit";
 import React, {ChangeEvent, useState} from "react";
 import {setAppOpenDiologsAC} from "../../bll/appReducer";
 
-export const Post = ({text, smallPhoto, date, id, name}: any) => {
+type PostType = {
+    text: string
+    smallPhoto: string
+    date: string
+    id: string
+    name: string
+}
+
+export const Post = ({text, smallPhoto, date, id, name}: PostType) => {
     const dispatch = useDispatch()
-    let [editMode, setEditMode] = useState(false);
-    let [title, setTitle] = useState(text);
+    let [editMode, setEditMode] = useState(false)
+    let [title, setTitle] = useState(text)
 
     const activateEditMode = () => {
-        setEditMode(true);
-        setTitle(title);
+        setEditMode(true)
+        setTitle(title)
     }
 
     const activateViewMode = () => {
-        setEditMode(false);
+        setEditMode(false)
         dispatch(changePostAC(id, title))
     }
 

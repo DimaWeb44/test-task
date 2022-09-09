@@ -27,9 +27,7 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
         }
     }
 
-    const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value)
-    }
+    const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {setTitle(e.currentTarget.value)}
 
     return editMode
         ? <TextField variant="standard"
@@ -40,4 +38,4 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
                      helperText={error}/>
         :
         <span onDoubleClick={activateEditMode}>{props.value}<EditIcon style={{fontSize: '15px', paddingLeft: '10px'}}/></span>
-});
+})

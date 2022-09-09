@@ -42,31 +42,30 @@ export function Header() {
                             <Typography style={nameTitleStyle}>
                                 {userName}
                             </Typography>
-                            <IconButton
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleMenu}
-                                color="primary"
+                            <IconButton aria-label="account of current user"
+                                        aria-controls="menu-appbar"
+                                        aria-haspopup="true"
+                                        onClick={handleMenu}
+                                        color="primary"
                             >
-                                <Avatar style={{backgroundColor: '#1976d2'}} src={avatar}
+                                <Avatar style={{backgroundColor: '#1976d2'}}
+                                        src={avatar as string}
                                         sx={{width: 40, height: 40,}}/>
                             </IconButton>
                         </div>
-                        <Menu
-                            sx={{mt: '40px'}}
-                            anchorEl={anchorEl}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorEl)}
-                            onClose={handleClose}
+                        <Menu sx={{mt: '40px'}}
+                              anchorEl={anchorEl}
+                              anchorOrigin={{
+                                  vertical: 'top',
+                                  horizontal: 'right',
+                              }}
+                              keepMounted
+                              transformOrigin={{
+                                  vertical: 'top',
+                                  horizontal: 'right',
+                              }}
+                              open={Boolean(anchorEl)}
+                              onClose={handleClose}
                         >
                             <Typography textAlign="center">
                                 <MenuItem onClick={handleClose}>

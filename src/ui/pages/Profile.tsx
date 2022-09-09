@@ -3,7 +3,14 @@ import {useDispatch} from "react-redux";
 import {PhotoCamera} from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import {addNewPostAC, setNewAvatarAC, setNewEmailAC, setNewNameAC, setNewPhoneAC} from "../../bll/profileReducer";
+import {
+    addNewPostAC,
+    PostType,
+    setNewAvatarAC,
+    setNewEmailAC,
+    setNewNameAC,
+    setNewPhoneAC
+} from "../../bll/profileReducer";
 import {useAppSelector} from "../../bll/store";
 import {EditableSpan} from "../components/common/EditableSpan";
 import {AddItemForm} from "../components/common/AddItemForm";
@@ -28,7 +35,7 @@ export const Profile = () => {
                  alignItems="center">
         <Grid marginRight={'70px'}>
             <div style={{position: 'relative'}}>
-                <Avatar variant="rounded" style={{backgroundColor: '#1976d2'}} src={profile.avatar}
+                <Avatar variant="rounded" style={{backgroundColor: '#1976d2'}} src={profile.avatar as string}
                         sx={{width: 210, height: 210,}}/>
                 <div style={{position: 'absolute', top: '175px', left: '175px'}}>
                     <Avatar sx={{width: 35, height: 35,}}>
@@ -55,12 +62,12 @@ export const Profile = () => {
             </Typography>
         </Grid>
         <AddItemForm addItem={(title) => dispatch(addNewPostAC(title))}/>
-        {posts.map((item: any) => <Post
+        {posts.map((item: PostType) => <Post
             name={profile.name}
             key={item.id}
             id={item.id}
             text={item.text}
-            smallPhoto={profile.avatar}
+            smallPhoto={profile.avatar as string}
             date={item.date}/>)}
         <DeletePostDialogs/>
     </Grid>

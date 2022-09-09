@@ -1,9 +1,8 @@
-import {combineReducers, legacy_createStore as createStore } from 'redux'
+import {combineReducers, legacy_createStore as createStore} from 'redux'
 import {ProfileActionsType, profileReducer} from "./profileReducer";
 import {TypedUseSelectorHook, useSelector} from "react-redux";
 import {ActionsTypeApp, appReducer} from "./appReducer";
 import {NewsActionsType, newsReducer} from "./newsReducer";
-
 
 export const rootReducer = combineReducers({
     profile: profileReducer,
@@ -12,7 +11,6 @@ export const rootReducer = combineReducers({
 })
 
 export const store = createStore(rootReducer);
-
 
 export type RootStateType = ReturnType<typeof store.getState>
 export type AppActionsType = | ProfileActionsType | ActionsTypeApp | NewsActionsType

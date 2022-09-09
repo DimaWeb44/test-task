@@ -1,7 +1,7 @@
 import {AppActionsType} from "./store";
 
 const initialState: InitialStateType = {
-    isOpenDiologs: 'close',
+    isOpenDiologs: 'close'
 }
 
 export const appReducer = (state: InitialStateType = initialState, action: AppActionsType): InitialStateType => {
@@ -16,12 +16,8 @@ export const appReducer = (state: InitialStateType = initialState, action: AppAc
 // actions
 export const setAppOpenDiologsAC = (diologs: string) => ({type: 'APP/SET-IS-DIOLOGS', diologs} as const)
 
-
 // types
-export type InitialStateType = {
-    isOpenDiologs: string
-}
-
+export type InitialStateType = {isOpenDiologs: string }
 export type SetAppOpenDiologsActionType = ReturnType<typeof setAppOpenDiologsAC>
-export type ActionsTypeApp = | SetAppOpenDiologsActionType
+export type ActionsTypeApp = SetAppOpenDiologsActionType
 
